@@ -102,7 +102,7 @@ button:hover {
 
 			<c:forEach items="${removeCar}" var="car">
 				<tr>
-					<td><input type="radio" name="id" value=${car.getId()}></td>
+					<td><input type="checkbox" name="id" value=${car.getId()}></td>
 					<td>${car.getId()}</td>
 					<td>${car.getMaker()}</td>
 					<td>${car.getModel()}</td>

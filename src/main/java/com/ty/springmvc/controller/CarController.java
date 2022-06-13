@@ -124,8 +124,9 @@ public class CarController {
 
 	@GetMapping("/removecar")
 	public ModelAndView removeCar(HttpServletRequest req) {
-		String id = req.getParameter("id");
-		carService.removeCar(Integer.parseInt(id));
+		String[] id = req.getParameterValues("id");
+
+		carService.removeCar(id);
 
 		ModelAndView mv = new ModelAndView("/viewcar");
 		mv.addObject("viewCar", "removed");

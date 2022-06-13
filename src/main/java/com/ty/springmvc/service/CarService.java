@@ -26,7 +26,7 @@ public class CarService {
 
 	}
 
-	public void removeCar(int id) {
+	public void removeCar(String[] id) {
 		carDao.removeCar(id);
 	}
 

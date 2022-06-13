@@ -49,15 +49,17 @@ public class CarDao {
 		}
 	}
 
-	public void removeCar(int id) {
+	public void removeCar(String[] id) {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 
-		Query query = entityManager.createQuery("DELETE from Car c where c.id = ?1");
-		query.setParameter(1, id);
-
 		entityTransaction.begin();
-		query.executeUpdate();
+
+		for (String s : id) {
+			Query query = entityManager.createQuery("DELETE from Car c where c.id = ?1");
+			query.setParameter(1, Integer.parseInt(s));
+			query.executeUpdate();
+		}
 		entityTransaction.commit();
 	}
 
